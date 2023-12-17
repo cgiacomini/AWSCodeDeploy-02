@@ -1,0 +1,18 @@
+name: Remove old artifacts
+
+on:
+  schedule:
+    # Run every 2 days
+    interval: daily
+
+jobs:
+  remove-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Remove old artifacts
+        uses: actions/github/artifact-remove-action@v1
+        with:
+          older-than: 90 days
