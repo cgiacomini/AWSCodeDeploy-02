@@ -2,9 +2,7 @@ name: Remove old artifacts
 
 on:
   schedule:
-    # Run every 2 days
-    interval: daily
-
+    - cron: "0 0 * * 1"
 jobs:
   remove-artifacts:
     runs-on: ubuntu-latest
